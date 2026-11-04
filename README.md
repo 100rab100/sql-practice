@@ -25,7 +25,6 @@ I am a data engineer working through a set of **600 SQL questions across 120 top
 - [Topics covered](#topics-covered)
 - [How to run the queries](#how-to-run-the-queries)
 - [Solution format](#solution-format)
-- [Daily workflow](#daily-workflow)
 - [Author](#author)
 
 ## Goals

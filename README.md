@@ -91,8 +91,10 @@ The data deliberately includes NULLs, duplicate rows, tied salaries, unmatched r
 Each question is a comment followed by the query:
 
 ```sql
--- Q2: Show only first_name, last_name and salary of all employees.
-SELECT first_name, last_name, salary
+-- Day 1 | Q1: Display all columns and all rows from the employees table.
+-- Topic: SELECT basics | Database: MySQL
+
+SELECT *
 FROM   employees;
 ```
 

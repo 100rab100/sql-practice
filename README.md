@@ -1,66 +1,111 @@
-# SQL Practice: 600 Questions
+<h1 align="center">SQL Practice: 600 Questions</h1>
 
-Solving **600 SQL questions**, practising every day, from the basics to interview-level queries.
-Every question is saved as a `.sql` file with the problem, the table structure and the solution.
-The queries are written for **MySQL**.
+<p align="center">
+  A daily hands-on SQL journey for data engineering, from <code>SELECT</code> to window functions, CTEs and real-world analytics.
+</p>
 
-## About this repo
+<p align="center">
+  <img src="https://img.shields.io/badge/SQL-MySQL-blue" alt="MySQL">
+  <img src="https://img.shields.io/badge/Questions-600-success" alt="600 questions">
+  <img src="https://img.shields.io/badge/Topics-120-orange" alt="120 topics">
+  <img src="https://img.shields.io/badge/Commits-daily-brightgreen" alt="Daily commits">
+</p>
 
-I am a data engineer, and SQL is a core part of my daily work. This repo is my practice log.
-It shows how my queries improve over time, from simple filters to joins, window
-functions and real interview questions.
+---
 
-## Topics
+## About
 
-| # | Topic |
-|---|---|
-| 1 | Select & Filter (WHERE, IN, LIKE, BETWEEN) |
-| 2 | Aggregations (GROUP BY, HAVING) |
-| 3 | Joins |
-| 4 | Subqueries |
-| 5 | CTEs |
-| 6 | Window Functions |
-| 7 | Date & String Functions |
-| 8 | Interview Questions |
+I am a data engineer working through a set of **600 SQL questions across 120 topics**. Every question is solved by me, run in MySQL, and pushed here daily. The goal is to build strong, interview-ready SQL, not to collect answers.
+
+## Contents
+
+- [Goals](#goals)
+- [Repo structure](#repo-structure)
+- [Sample database](#sample-database)
+- [Topics covered](#topics-covered)
+- [How to run the queries](#how-to-run-the-queries)
+- [Solution format](#solution-format)
+- [Daily workflow](#daily-workflow)
+- [Author](#author)
+
+## Goals
+
+- Practise every SQL topic, 5 questions per topic
+- Write queries from scratch and verify the output
+- Learn MySQL syntax and its differences from other databases
+- Keep a visible, daily learning streak
 
 ## Repo structure
 
 ```
-sql-practice/
-├── README.md
-├── 01_select_filter/
-├── 02_aggregations/
-├── 03_joins/
-├── 04_subqueries/
-├── 05_ctes/
-├── 06_window_functions/
-├── 07_date_string_functions/
-└── 08_interview_questions/
+sql-practice-600/
+├── README.md        # this file
+├── TABLES.md        # all 13 sample tables with data
+├── .gitignore
+└── solutions/
+    ├── _template.sql
+    ├── day-01.sql
+    ├── day-02.sql
+    └── ...
 ```
 
-Files are named by question number, for example `q_001_orders_not_delivered_or_shipped.sql`.
+## Sample database
 
-## How each solution is written
+All questions use the same 13 tables, listed in full in **[TABLES.md](TABLES.md)**.
 
-Every file starts with the problem and the table structure, followed by the query:
+| Area | Tables |
+|---|---|
+| HR | `employees`, `departments`, `locations`, `jobs` |
+| Sales | `customers`, `orders`, `order_items`, `payments`, `sales` |
+| Catalog | `products`, `categories`, `suppliers` |
+| Analytics | `web_events` |
+
+The data deliberately includes NULLs, duplicate rows, tied salaries, unmatched rows for joins, and a manager hierarchy, so edge cases show up in real queries.
+
+## Topics covered
+
+| Group | Topics | Questions |
+|---|---|---|
+| Basics | SELECT, aliases, DISTINCT, WHERE, AND/OR/NOT, IN, BETWEEN, LIKE, NULL checks, ORDER BY, LIMIT/OFFSET, arithmetic, CONCAT | Q1 to Q65 |
+| Functions | String, substring, replace, date, numeric, NULL functions, CASE, CAST | Q66 to Q115 |
+| Aggregation | COUNT, SUM, AVG, MIN, MAX, GROUP BY, HAVING, conditional aggregation, GROUP_CONCAT, ROLLUP, statistics | Q116 to Q170 |
+| Joins | INNER, LEFT, RIGHT, FULL, CROSS, SELF, multi-table, anti, non-equi | Q171 to Q225 |
+| Set operations | UNION, UNION ALL, INTERSECT, EXCEPT | Q226 to Q250 |
+| Subqueries | Scalar, IN, derived, correlated, EXISTS, ANY/ALL, nested | Q251 to Q290 |
+| CTEs | Basic, multiple, recursive, refactoring | Q291 to Q315 |
+| Window functions | ROW_NUMBER, RANK, NTILE, LAG/LEAD, running totals, moving averages, top-N, gaps and islands, sessionization | Q316 to Q395 |
+| DML | INSERT, UPDATE, DELETE, MERGE/upsert, TRUNCATE | Q396 to Q435 |
+| DDL and objects | CREATE/ALTER/DROP, constraints, views, indexes, procedures, functions, triggers, cursors, transactions | Q436 to Q530 |
+| Advanced | EXPLAIN, normalization, pivot/unpivot, JSON, regex, data cleaning, cohort, funnel, retention, security | Q531 to Q600 |
+
+## How to run the queries
+
+1. Install MySQL 8 (or use MySQL Workbench or DBeaver).
+2. Create a database: `CREATE DATABASE sql_practice; USE sql_practice;`
+3. Create the tables and load the data from [TABLES.md](TABLES.md).
+4. Open any file in `solutions/` and run the queries.
+
+> Queries are written for **MySQL 8**. A few functions (such as `CONCAT`, `SUBSTRING_INDEX`, `LIMIT`) differ in PostgreSQL, SQL Server and Oracle.
+
+## Solution format
+
+Each question is a comment followed by the query:
+
+```sql
+-- Q2: Show only first_name, last_name and salary of all employees.
+SELECT first_name, last_name, salary
+FROM   employees;
+```
+
+Style rules I follow:
+- Keywords in UPPERCASE, names in lowercase
+- Each main clause (`SELECT`, `FROM`, `WHERE`, ...) on its own line
+- Values in single quotes, names with spaces in backticks
+- Every query ends with a semicolon
 
 
 
-## What I practise
+**Saurabh Patil** | Data Engineer
+[LinkedIn](https://www.linkedin.com/in/your-profile) | [GitHub](https://github.com/your-username)
 
-- **Select & Filter:** WHERE, AND / OR / NOT, IN, BETWEEN, LIKE, NULL handling
-- **Aggregations:** COUNT, SUM, AVG, MIN, MAX, GROUP BY, HAVING
-- **Joins:** INNER, LEFT, RIGHT, self joins, finding unmatched rows
-- **Subqueries:** in WHERE and FROM, correlated subqueries, EXISTS
-- **CTEs:** WITH clauses and readable multi-step queries
-- **Window Functions:** ROW_NUMBER, RANK, DENSE_RANK, LAG, LEAD, running totals
-- **Date & String Functions:** date parts and differences, formatting, string cleaning
-- **Interview Questions:** Nth highest salary, duplicates, top N per group, gaps and islands
-
-## About me
-
-- Data engineer, working with SQL and Python
-- Also practising DSA daily in Python (see my `dsa-python` repo)
-- Connect with me on LinkedIn: *https://www.linkedin.com/in/100abh-patil/*
-
-If you know a better way to write any query, feel free to open an issue or a pull request.
+If this helps you, leave a star on the repo.

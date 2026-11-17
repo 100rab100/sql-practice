@@ -2,6 +2,7 @@
 -- Topic: Substring | Database: MySQL
 
 
+
 SELECT first_name,
        last_name,
        CONCAT(LEFT(first_name, 1), LEFT(last_name, 1)) AS initials

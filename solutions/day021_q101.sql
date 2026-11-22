@@ -5,3 +5,9 @@ SELECT first_name,
        commission_pct,
        IFNULL(commission_pct, 0) AS commission_pct_clean
 FROM   employees;
+
+
+-- SELECT first_name,
+--        commission_pct,
+--        COALESCE(commission_pct, 0) AS commission_pct_clean
+-- FROM   employees;
